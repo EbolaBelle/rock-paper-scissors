@@ -6,7 +6,20 @@
     </head>
     <body>
         <script>
-            
+            let computerOutput
+            function getComputerChoice() {
+                
+                let computerChoice = Math.random();
+                if (computerChoice >= 0.3 && computerChoice <= 0.6) {
+                    return computerOutput = "Paper";
+                } else if (computerChoice < 0.3) {
+                    return computerOutput = "Rock";
+                } else {
+                    return computerOutput = "Scissors";
+                }
+            }
+            getComputerChoice()
+            console.log(computerOutput);
         </script>
     </body>
 
