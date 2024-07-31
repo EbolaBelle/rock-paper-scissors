@@ -6,19 +6,17 @@
     </head>
     <body>
         <script>
-            let computerOutput;
-            let humanOuput;
             let humanScore = 0;
             let computerScore = 0;
             function getComputerChoice() {
                 
                 let computerChoice = Math.random();
                 if (computerChoice >= 0.3 && computerChoice <= 0.6) {
-                    return computerOutput = "Paper";
+                    return "paper";
                 } else if (computerChoice < 0.3) {
-                    return computerOutput = "Rock";
+                    return "rock";
                 } else {
-                    return computerOutput = "Scissors";
+                    return "scissors";
                 }
             }
 
@@ -35,10 +33,35 @@
                     alert("Invalid input; refresh page.");
                 }
             }
-            getHumanChoice();
-            alert(humanOuput);
+
+            function playRound(humanChoice, computerChoice) {
+                if (humanChoice === "rock" && computerChoice === 'scissors') {
+                    console.log("Rock beats scissors! You win!");
+                    humanScore++;
+                } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+                    console.log("Paper beats rock! You lose.");
+                    computerScore++;
+                } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+                    console.log("Paper beats rock! You win!");
+                    humanScore++;
+                } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+                    console.log("Scissors beat paper!  You lose.");
+                    computerScore++;
+                } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+                    console.log("Scissors beat paper! You win!");
+                    humanScore++;
+                } else if (humanChoice === 'scissors' && computerChoice === "rock") {
+                    console.log("Rock beats scissors! You lose.")
+                } else {
+                    console.log('A tie! Try again.')
+                }
+            }
+            playRound(getHumanChoice(), getComputerChoice());
+            console.log(humanScore, computerScore);
+            //getHumanChoice();
+            
             // getComputerChoice()
-            // console.log(computerOutput);
+            
         </script>
     </body>
 
