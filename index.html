@@ -7,6 +7,7 @@
     <body>
         <script>
             let computerOutput
+            let humanOuput
             function getComputerChoice() {
                 
                 let computerChoice = Math.random();
@@ -18,8 +19,24 @@
                     return computerOutput = "Scissors";
                 }
             }
-            getComputerChoice()
-            console.log(computerOutput);
+
+            function getHumanChoice () {
+                let humanChoice = prompt("Rock, paper, or scissors?", "");
+                humanChoice = humanChoice.toLowerCase();
+                if (humanChoice === "rock"){
+                    return humanOuput = "rock";
+                } else if (humanChoice === "paper") {
+                    humanOuput = "paper";
+                } else if (humanChoice === "scissors") {
+                    humanOuput = "scissors";
+                } else {
+                    alert("Invalid input; refresh page.");
+                }
+            }
+            getHumanChoice();
+            alert(humanOuput);
+            // getComputerChoice()
+            // console.log(computerOutput);
         </script>
     </body>
 
