@@ -8,13 +8,14 @@
         <script>
             function getComputerChoice() {
                 
-                let computerChoice = Math.random();
-                if (computerChoice >= 0.3 && computerChoice <= 0.6) {
-                    return "paper";
-                } else if (computerChoice < 0.3) {
-                    return "rock";
-                } else {
-                    return "scissors";
+                let computerChoice = Math.floor(Math.random() * 3);
+                switch (computerChoice) {
+                    case 0:
+                        return "rock"
+                    case 1:
+                           return "paper"
+                    case 2:
+                        return "scissors"
                 }
             }
 
@@ -64,6 +65,7 @@
                 playRound(getHumanChoice(), getComputerChoice())
                 playRound(getHumanChoice(), getComputerChoice())
                 playRound(getHumanChoice(), getComputerChoice())
+                
                 if (humanScore > computerScore) {
                     console.log('You win!');
                 } else if (humanScore < computerScore) {
