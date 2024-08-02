@@ -52,6 +52,7 @@ function playGame() {
             console.log('A tie!')
         }
     }
+    alert("Open browser console (shift+ctrl+i) to play game!")
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
     playRound(getHumanChoice(), getComputerChoice())
