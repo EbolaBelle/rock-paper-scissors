@@ -30,6 +30,7 @@ let computerScore = 0;
 const rock = document.querySelector("#rock");
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+const score = document.querySelector('#score');
 
 rock.addEventListener("click", () => 
     playRound('rock', getComputerChoice()));
@@ -40,24 +41,24 @@ scissors.addEventListener('click', () =>
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === 'scissors') {
-        console.log("Rock *SMASHES* scissors! You win!");
+        score.textContent = "Rock *SMASHES* scissors! You win!";
         humanScore++;
     } else if (humanChoice === 'rock' && computerChoice === 'paper') {
-        console.log("Paper *SMOTHERS* rock! You lose.");
+        score.textContent = "Paper *SMOTHERS* rock! You lose.";
         computerScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        console.log("Paper *SMOTHERS* rock! You win!");
+        score.textContent = "Paper *SMOTHERS* rock! You win!";
         humanScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        console.log("Scissors *SLICE* paper!  You lose.");
+        score.textContent = "Scissors *SLICE* paper!  You lose.";
         computerScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        console.log("Scissors *SLICE* paper! You win!");
+        score.textContent = "Scissors *SLICE* paper! You win!";
         humanScore++;
     } else if (humanChoice === 'scissors' && computerChoice === "rock") {
-        console.log("Rock *SMASHES* scissors! You lose.")
+        score.textContent = "Rock *SMASHES* scissors! You lose.";
     } else {
-        console.log('A tie!')
+        score.textContent = 'A tie!';
     }
 }
 
