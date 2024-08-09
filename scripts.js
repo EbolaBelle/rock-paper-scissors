@@ -31,7 +31,12 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
-
+rock.addEventListener("click", () => 
+    playRound('rock', getComputerChoice()));
+paper.addEventListener("click", () => 
+    playRound('paper', getComputerChoice()));
+scissors.addEventListener('click', () => 
+    playRound('scissors', getComputerChoice()));
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === 'scissors') {
@@ -56,7 +61,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-rock.addEventListener("click", () => playRound('rock', getComputerChoice));
+
 
 /*function playGame() {
     let humanScore = 0;
