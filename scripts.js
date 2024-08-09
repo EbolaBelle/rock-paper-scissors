@@ -10,27 +10,15 @@ function getComputerChoice() {
             return "scissors"
     }
 }
-
-/*function getHumanChoice () {
-    let humanChoice = prompt("Rock, paper, or scissors?", "");
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice === "rock"){
-        return "rock";
-    } else if (humanChoice === "paper") {
-        return "paper";
-    } else if (humanChoice === "scissors" || humanChoice === 'scissor') {
-        return "scissors";
-    } else {
-        alert("Invalid input.");
-    }
-}*/
 let humanScore = 0;
 let computerScore = 0;
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-const score = document.querySelector('#score');
+const outcome = document.querySelector('#outcome');
+const playerScore = document.querySelector('#playerscore');
+const compScore = document.querySelector('#computerscore');
 
 rock.addEventListener("click", () => 
     playRound('rock', getComputerChoice()));
@@ -41,25 +29,29 @@ scissors.addEventListener('click', () =>
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock" && computerChoice === 'scissors') {
-        score.textContent = "Rock *SMASHES* scissors! You win!";
+        outcome.textContent = "Rock *SMASHES* scissors! You win!";
         humanScore++;
+        
     } else if (humanChoice === 'rock' && computerChoice === 'paper') {
-        score.textContent = "Paper *SMOTHERS* rock! You lose.";
+        outcome.textContent = "Paper *SMOTHERS* rock! You lose.";
         computerScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        score.textContent = "Paper *SMOTHERS* rock! You win!";
+        outcome.textContent = "Paper *SMOTHERS* rock! You win!";
         humanScore++;
     } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        score.textContent = "Scissors *SLICE* paper!  You lose.";
+        outcome.textContent = "Scissors *SLICE* paper!  You lose.";
         computerScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        score.textContent = "Scissors *SLICE* paper! You win!";
+        outcome.textContent = "Scissors *SLICE* paper! You win!";
         humanScore++;
     } else if (humanChoice === 'scissors' && computerChoice === "rock") {
-        score.textContent = "Rock *SMASHES* scissors! You lose.";
+        outcome.textContent = "Rock *SMASHES* scissors! You lose.";
+        computerScore++;
     } else {
-        score.textContent = 'A tie!';
+        outcome.textContent = 'A tie!';
     }
+    playerScore.textContent =`Player: ${humanScore}`;
+    compScore.textContent = `Computer: ${computerScore}`;
 }
 
 
