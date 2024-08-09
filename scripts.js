@@ -28,30 +28,35 @@ scissors.addEventListener('click', () =>
     playRound('scissors', getComputerChoice()));
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice === "rock" && computerChoice === 'scissors') {
-        outcome.textContent = "Rock *SMASHES* scissors! You win!";
-        humanScore++;
-        
-    } else if (humanChoice === 'rock' && computerChoice === 'paper') {
-        outcome.textContent = "Paper *SMOTHERS* rock! You lose.";
-        computerScore++;
-    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        outcome.textContent = "Paper *SMOTHERS* rock! You win!";
-        humanScore++;
-    } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-        outcome.textContent = "Scissors *SLICE* paper!  You lose.";
-        computerScore++;
-    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        outcome.textContent = "Scissors *SLICE* paper! You win!";
-        humanScore++;
-    } else if (humanChoice === 'scissors' && computerChoice === "rock") {
-        outcome.textContent = "Rock *SMASHES* scissors! You lose.";
-        computerScore++;
+    if (humanScore === 5 || computerScore === 5) {
+        humanScore === 5 ? outcome.textContent = "You win!"
+        : outcome.textContent = "Computer wins!";
     } else {
-        outcome.textContent = 'A tie!';
+        if (humanChoice === "rock" && computerChoice === 'scissors') {
+            outcome.textContent = "Rock *SMASHES* scissors! You win!";
+            humanScore++;
+            
+        } else if (humanChoice === 'rock' && computerChoice === 'paper') {
+            outcome.textContent = "Paper *SMOTHERS* rock! You lose.";
+            computerScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            outcome.textContent = "Paper *SMOTHERS* rock! You win!";
+            humanScore++;
+        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
+            outcome.textContent = "Scissors *SLICE* paper!  You lose.";
+            computerScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+            outcome.textContent = "Scissors *SLICE* paper! You win!";
+            humanScore++;
+        } else if (humanChoice === 'scissors' && computerChoice === "rock") {
+            outcome.textContent = "Rock *SMASHES* scissors! You lose.";
+            computerScore++;
+        } else {
+            outcome.textContent = 'A tie!';
+        }
+        playerScore.textContent =`Player: ${humanScore}`;
+        compScore.textContent = `Computer: ${computerScore}`;
     }
-    playerScore.textContent =`Player: ${humanScore}`;
-    compScore.textContent = `Computer: ${computerScore}`;
 }
 
 
