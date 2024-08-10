@@ -28,10 +28,6 @@ scissors.addEventListener('click', () =>
     playRound('scissors', getComputerChoice()));
 
 function playRound(humanChoice, computerChoice) {
-    if (humanScore === 5 || computerScore === 5) {
-        humanScore === 5 ? outcome.textContent = "You win!"
-        : outcome.textContent = "Computer wins!";
-    } else {
         if (humanChoice === "rock" && computerChoice === 'scissors') {
             outcome.textContent = "Rock *SMASHES* scissors! You win!";
             humanScore++;
@@ -56,9 +52,25 @@ function playRound(humanChoice, computerChoice) {
         }
         playerScore.textContent =`Player: ${humanScore}`;
         compScore.textContent = `Computer: ${computerScore}`;
-    }
+    //}
+    isGameOver();
 }
 
+function isGameOver() {
+    if (humanScore === 5 || computerScore === 5) {
+        const body = document.querySelector('body');
+        const winner = document.createElement('div');
+        humanScore === 5 
+        ? winner.textContent = "You win!"
+        : winner.textContent = "Computer wins!";
+        body.appendChild(winner);
+        rock.removeEventListener('click');
+        paper.removeEventListener('click');
+        scissors.removeEventListener('click');
+    } else {
+        return false;
+    }
+}
 
 
 /*function playGame() {
