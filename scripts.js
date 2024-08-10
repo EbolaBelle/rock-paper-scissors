@@ -1,4 +1,3 @@
-
 let humanScore = 0;
 let computerScore = 0;
 
@@ -13,14 +12,13 @@ rock.addEventListener("click", handleRockClick);
 paper.addEventListener("click", handlePaperClick);
 scissors.addEventListener('click', handleScissorsClick);
 
-function getComputerChoice() {
-                
+function getComputerChoice() {                
     let computerChoice = Math.floor(Math.random() * 3);
     switch (computerChoice) {
         case 0:
             return "rock"
         case 1:
-               return "paper"
+            return "paper"
         case 2:
             return "scissors"
     }
@@ -41,8 +39,7 @@ function handleScissorsClick() {
 function playRound(humanChoice, computerChoice) {
         if (humanChoice === "rock" && computerChoice === 'scissors') {
             outcome.textContent = "Rock *SMASHES* scissors! You win!";
-            humanScore++;
-            
+            humanScore++;            
         } else if (humanChoice === 'rock' && computerChoice === 'paper') {
             outcome.textContent = "Paper *SMOTHERS* rock! You lose.";
             computerScore++;
